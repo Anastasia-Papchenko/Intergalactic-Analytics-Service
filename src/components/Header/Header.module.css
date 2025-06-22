@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.logo-img {
+    height: 43px;
+}
+
+.title {
+    font-weight: 700;
+    background-color: rgba(203, 129, 255, 1);
+    padding: 3px 3px;
+    color: black;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #999;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid black;
+}
+  
+.icon {
+    height: 23px;
+}

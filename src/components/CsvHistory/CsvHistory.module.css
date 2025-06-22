@@ -1,0 +1,118 @@
+.historyWrapper {
+  padding: 4rem 2rem;
+  max-height: 100vh;
+}
+
+img {
+  height: 20px;
+}
+
+.empty {
+  color: #999;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cardTrash{
+  display: flex;
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(203, 129, 255, 1);
+  padding: 1rem;
+  border-radius: 45px;
+  width: 88vw;
+  height: 2vw;
+  cursor: pointer;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  color: rgba(32, 27, 16, 1);
+  gap: 0.8rem;
+  margin-left: 1rem;
+}
+
+.date {
+  color: rgba(32, 27, 16, 1);
+  font-size: 20px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resultSuccess {
+  color: rgba(32, 27, 16, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.resultFail {
+  color: rgba(143, 100, 174, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-right: 1rem;
+}
+
+.deleteBtn {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 10px;
+}
+
+.buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.greenBtn {
+  background: #00d878;
+  color: rgba(32, 27, 16, 1);
+  padding: 1rem 1rem;
+  border: none;
+  font-size: 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.blackBtn {
+  background: black;
+  color: white;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}

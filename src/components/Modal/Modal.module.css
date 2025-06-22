@@ -1,0 +1,110 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 6, 6, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  top: 7rem;
+  border-radius: 30px;
+  padding: 30px 20px 30px 30px;
+  width: 100%;
+  max-width: 40vw;
+  max-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  color: black;
+  box-shadow: 30px 30px 230px rgba(0, 0, 0, 0.5);
+}
+
+.label {
+  color: rgba(32, 27, 16, 1);
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+.values {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.value {
+  font-size: 25px;
+}
+
+.title {
+  color: #a6e3a1;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 8px;
+  width: 100%;
+  max-height: 60vh
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+.card {
+  background-color: rgba(234, 205, 255, 1);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 11rem;
+  left: 47rem;
+  background: none;
+  cursor: pointer;
+
+}
+
+.closeIcon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.close{
+  position: absolute;
+  top: 1.25rem;
+  left: 23.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
