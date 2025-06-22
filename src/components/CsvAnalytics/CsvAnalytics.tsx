@@ -221,28 +221,26 @@ export default function CsvAnalytics() {
                 <div className={styles['label']}>количество обработанных записей</div>
               </div>
               <div className={styles['resultCard']}>
-                <div className={styles['value']}>{data.big_spent_civ}</div>
-                <div className={styles['label']}>цивилизация с максимальными расходами</div>
+                <div className={styles['value']}>{getDateFromDayOfYear(data.big_spent_at)}</div>
+                <div className={styles['label']}>день года с максимальными расходами</div>
               </div>
               <div className={styles['resultCard']}>
                 <div className={styles['value']}>{getDateFromDayOfYear(data.less_spent_at)}</div>
                 <div className={styles['label']}>день года с минимальными расходами</div>
               </div>
               <div className={styles['resultCard']}>
-                <div className={styles['value']}>{getDateFromDayOfYear(data.big_spent_at)}</div>
-                <div className={styles['label']}>день года с максимальными расходами</div>
-              </div>
-              <div className={styles['resultCard']}>
                 <div className={styles['value']}>{formatNumber(data.big_spent_value)}</div>
                 <div className={styles['label']}>максимальная сумма расходов за день</div>
+              </div>
+              <div className={styles['resultCard']}>
+                <div className={styles['value']}>{data.big_spent_civ}</div>
+                <div className={styles['label']}>цивилизация с максимальными расходами</div>
               </div>
               <div className={styles['resultCard']}>
                 <div className={styles['value']}>{formatNumber(data.average_spend_galactic)}</div>
                 <div className={styles['label']}>средние расходы в галактических кредитах</div>
               </div>
             </div>
-
-
           ) : (
             <p>Не удалось прочитать данные</p>
           );

@@ -8,11 +8,44 @@ interface ModalProps {
   title?: string;
 }
 
-const getDateFromDayOfYear = (dayOfYear: number): string => {
-    const date = new Date(2025, 0);
-    date.setDate(dayOfYear);
-    return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
+const getDateFromDayOfYear = (
+  value: number | React.ReactElement
+): string => {
+  let dayOfYear: number;
+
+  if (typeof value === 'number') {
+    dayOfYear = value;
+  } else {
+    const children = (value.props as { children: string }).children;
+    dayOfYear = parseInt(children, 10);
+
+    if (isNaN(dayOfYear)) {
+      throw new Error('Invalid day of year');
+    }
+  }
+
+  const date = new Date(2025, 0); 
+  date.setDate(dayOfYear);
+
+  return date.toLocaleDateString('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+  });
 };
+
+const roundNumberFromElement = (
+  valueElement: React.ReactElement
+): number => {
+  const children = (valueElement.props as { children: string }).children;
+  const number = parseFloat(children);
+
+  if (isNaN(number)) {
+    throw new Error('Children must be a number or numeric string');
+  }
+
+  return Math.round(number);
+};
+
 
 const keyToLabel: Record<string, string> = {
   total_spend_galactic: 'Общие расходы в галактических кредитах',
@@ -26,9 +59,13 @@ const keyToLabel: Record<string, string> = {
   less_spent_civ: 'Цивилизация с минимальными расходами',
 };
 
-const excludedKeys = ['rows_affected'];
+const excludedKeys = ['less_spent_value'];
 const lessspentat = ['less_spent_at'];
 const bigspentat = ['big_spent_at'];
+const total_spend_galactic = ['total_spend_galactic'];
+const big_spent_value = ['big_spent_value'];
+const average_spend_galactic = ['average_spend_galactic'];
+
 
 export default function Modal({ children, onClose, title }: ModalProps) {
   useEffect(() => {
@@ -58,19 +95,20 @@ export default function Modal({ children, onClose, title }: ModalProps) {
             const valueElement = Array.isArray(element.props.children)
             ? element.props.children[0]
             : element.props.children;
-            if (lessspentat.includes(key)) {
-                console.log(`Key: ${key}, valueElement:`, valueElement);
+
+            console.log(valueElement);
+            if (bigspentat.includes(key) || lessspentat.includes(key)) {
                 return (
                 <div key={key} className={styles['card']}>
-                    <div className={styles['values']}>{getDateFromDayOfYear(valueElement.props.children[0])}</div>
+                    <div className={styles['values']}>{getDateFromDayOfYear(valueElement)}</div>
                     {label && <div className={styles['label']}>{label}</div>}
                 </div> 
                 );
             }
-            if (bigspentat.includes(key)) {
+            if (total_spend_galactic.includes(key) || big_spent_value.includes(key) || average_spend_galactic.includes(key)) {
                 return (
                 <div key={key} className={styles['card']}>
-                    <div className={styles['values']}>{getDateFromDayOfYear(valueElement.props.children[0])}</div>
+                    <div className={styles['values']}>{roundNumberFromElement(valueElement)}</div>
                     {label && <div className={styles['label']}>{label}</div>}
                 </div> 
                 );
@@ -94,7 +132,6 @@ export default function Modal({ children, onClose, title }: ModalProps) {
       </div>
       <button onClick={onClose} className={styles['closeBtn']}>
         <img src="/proicons_cancel.png" alt="Закрыть" className={styles['closeIcon']} />
-        <img src="/proicons_cancel.png" alt="Закрыть" className={styles['close']}/>
       </button>
     </div>,
     document.body

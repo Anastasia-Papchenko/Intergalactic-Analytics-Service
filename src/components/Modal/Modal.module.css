@@ -68,11 +68,11 @@
   padding: 8px;
 }
 
-.closeIcon {
+/* .closeIcon {
   width: 24px;
   height: 24px;
   filter: invert(1);
-}
+} */
 
 .card {
   background-color: rgba(234, 205, 255, 1);
@@ -87,24 +87,19 @@
 
 .closeBtn {
   position: absolute;
+  background-color: black;
   top: 11rem;
-  left: 47rem;
+  right: 23rem;
   background: none;
+  border: none;
   cursor: pointer;
-
+  padding: 8px;
 }
 
 .closeIcon {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  background-color: white;
-}
-
-.close{
-  position: absolute;
-  top: 1.25rem;
-  left: 23.25rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem; 
+  background-color: black;
 }
